@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kossnocorp/on-build-webpack"
+    "url": "https://github.com/GitSage/webpack-copy-on-build-plugin"
   },
   "keywords": [
     "webpack"
