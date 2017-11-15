@@ -1,6 +1,6 @@
 {
   "name": "webpack-copy-on-build-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Webpack plugin that copies files after build has been completed",
   "main": "index.js",
   "repository": {
