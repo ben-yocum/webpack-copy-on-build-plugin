@@ -20,19 +20,20 @@ WebpackCopyOnBuildPlugin.prototype.apply = function(compiler) {
 			
 			var to = file.to.replace('[hash]', stats.hash);
 			var from = file.from.replace('[hash]', stats.hash);
-			console.log('Copying from ' + to + ' to ' + from);
 
 			var fs;
 			if(compiler.outputFileSystem.constructor.name === 'MemoryFileSystem')
 			{
-				console.log('Using memory-fs ' + compiler.outputFileSystem.constructor);
+				console.log('Copying from ' + to + ' to ' + from + ' using memory-fs');
 				fs = compiler.outputFileSystem;
 			}
 			else
 			{
-				console.log('Using normal fs');
+				console.log('Copying from ' + to + ' to ' + from + ' using fs');
 				fs = require('fs');
 			}
+
+			console.log();
 
 			var rd = fs.createReadStream(from);
 
