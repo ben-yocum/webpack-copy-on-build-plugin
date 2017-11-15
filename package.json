@@ -1,0 +1,13 @@
+{
+  "name": "webpack-copy-on-build-plugin",
+  "version": "1.0.0",
+  "description": "Webpack plugin that copies files after build has been completed",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kossnocorp/on-build-webpack"
+  },
+  "keywords": ["webpack"],
+  "author": "Benjamin Yocum <benjaminbyocum@gmail.com>",
+  "license": "MIT"
+}
