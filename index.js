@@ -24,12 +24,12 @@ WebpackCopyOnBuildPlugin.prototype.apply = function(compiler) {
 			var fs;
 			if(compiler.outputFileSystem.constructor.name === 'MemoryFileSystem')
 			{
-				console.log('Copying from ' + to + ' to ' + from + ' using memory-fs');
+				console.log('Copying from ' + from + ' to ' + to + ' using memory-fs');
 				fs = compiler.outputFileSystem;
 			}
 			else
 			{
-				console.log('Copying from ' + to + ' to ' + from + ' using fs');
+				console.log('Copying from ' + from + ' to ' + to + ' using fs');
 				fs = require('fs');
 			}
 
