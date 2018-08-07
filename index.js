@@ -35,7 +35,6 @@ WebpackCopyOnBuildPlugin.prototype.apply = function(compiler) {
 				fs = require('fs');
 			}
 
-			console.log();
 
 			var rd = fs.createReadStream(from);
 
