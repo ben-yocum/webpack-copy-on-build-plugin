@@ -8,16 +8,18 @@
  * @param files[x].from - string filename. File should exist after webpack is done building.
  * @param files[x].to - string. files[x].from will be renamed to this.
  */
-function WebpackCopyOnBuildPlugin(files) {
+function WebpackCopyOnBuildPlugin(files, toRealFs = false) {
 	console.log('Started webpack-rename-on-build with parameter ' + JSON.stringify(files));
 	this.files = files;
+	this.toRealFs = toRealFs;
 }
 
 WebpackCopyOnBuildPlugin.prototype.apply = function(compiler) {
-	var files = this.files;
+	var files = this.files,
+      toRealFs = this.toRealFs;
 	compiler.plugin('done', function(stats) {
 		files.forEach(function(file) {
-			
+
 			var to = file.to.replace('[hash]', stats.hash);
 			var from = file.from.replace('[hash]', stats.hash);
 
@@ -41,7 +43,11 @@ WebpackCopyOnBuildPlugin.prototype.apply = function(compiler) {
 				done(err);
 			});
 
-			var wr = fs.createWriteStream(to);
+			var wr;
+      if(toRealFs && compiler.outputFileSystem.constructor.name === 'MemoryFileSystem') {
+        let fs = require('fs');
+        wr = fs.createWriteStream(to);
+      } else wr = fs.createWriteStream(to);
 
 			wr.on('error', function (err) {
 				done(err);
