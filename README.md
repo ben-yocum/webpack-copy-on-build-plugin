@@ -13,7 +13,7 @@ npm install --save-dev webpack-copy-on-build-plugin
 In config file:
 
 ``` javascript
-var WebpackOnBuildPlugin = require('on-build-webpack');
+var WebpackCopyOnBuildPlugin = require('on-build-webpack');
 
 // ...
   module: {
